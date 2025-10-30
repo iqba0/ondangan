@@ -1,0 +1,742 @@
+/* Animasi lembut */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#cover {
+  animation: fadeInUp 1.5s ease-out;
+}
+
+/* Efek bayangan lembut seperti kartu */
+.shadow-2xl {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Efek shimmer halus untuk teks */
+.text-shimmer {
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fcb69f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Basic resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-attachment: fixed;
+}
+
+/* Fonts */
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+}
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Flip card */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Animations & transitions */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Floating & heartbeat */
+.floating {
+  animation: floating 4s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+.heart-beat {
+  animation: heartbeat 2.5s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.05) rotate(-2deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(2deg);
+  }
+}
+
+/* Background gradient */
+.gradient-bg {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #f9fafb 100%);
+  animation: gradientShift 8s ease-in-out infinite;
+}
+@keyframes gradientShift {
+  0%,
+  100% {
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #f9fafb 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #fce7f3 0%, #f9fafb 50%, #fdf2f8 100%);
+  }
+}
+
+/* Gold accent text */
+.gold-accent {
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24);
+  background-size: 200% 200%;
+  animation: goldShimmer 3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+@keyframes goldShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Gallery */
+.gallery-item {
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.45s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  will-change: transform, box-shadow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+}
+.gallery-item:hover {
+  transform: scale(1.06) rotate(1.5deg);
+  box-shadow: 0 20px 40px rgba(244, 114, 182, 0.18);
+}
+
+/* Shine overlay */
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transition: left 0.6s;
+}
+.gallery-item:hover::before {
+  left: 100%;
+}
+
+/* Section divider */
+.section-divider {
+  background: linear-gradient(90deg, transparent, #f9a8d4, transparent);
+  height: 2px;
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+  animation: dividerShine 3s ease-in-out infinite;
+}
+@keyframes dividerShine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Buttons and cards */
+.nav-link {
+  position: relative;
+  transition: all 0.25s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #f9a8d4, #fbbf24);
+  transition: all 0.25s;
+  transform: translateX(-50%);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.button-elegant {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.button-elegant::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  transition: left 0.45s;
+}
+.button-elegant:hover::before {
+  left: 100%;
+}
+.button-elegant:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(244, 114, 182, 0.28);
+}
+
+.card-elegant {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.card-elegant:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(244, 114, 182, 0.12);
+}
+
+/* Text shimmer */
+.text-shimmer {
+  background: linear-gradient(
+    45deg,
+    #ec4899,
+    #f9a8d4,
+    #fbbf24,
+    #f9a8d4,
+    #ec4899
+  );
+  background-size: 300% 300%;
+  animation: textShimmer 4s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes textShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Sparkle */
+.sparkle {
+  position: relative;
+}
+.sparkle::before,
+.sparkle::after {
+  content: "✨";
+  position: absolute;
+  animation: sparkleFloat 3s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0;
+}
+.sparkle::before {
+  top: -10px;
+  left: -20px;
+  animation-delay: 0s;
+}
+.sparkle::after {
+  bottom: -10px;
+  right: -20px;
+  animation-delay: 1.5s;
+}
+@keyframes sparkleFloat {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.2);
+  }
+}
+
+/* Image viewer */
+#imageViewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#imageViewer.hidden {
+  display: none;
+}
+
+/* Responsive helpers are primarily handled with Tailwind classes in HTML */
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .flip-card-front,
+  .flip-card-back,
+  .card-elegant,
+  .bg-white {
+    background-color: #111827 !important;
+    color: #f3f4f6 !important;
+    border-color: rgba(255, 255, 255, 0.04) !important;
+  }
+  .gradient-bg {
+    background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
+  }
+}
+
+/* Reduced motion (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Small helpers */
+.hidden {
+  display: none !important;
+}
+.visible {
+  display: block !important;
+}
+/* ======== GENERAL ======== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 2rem;
+  color: #444;
+}
+
+.subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+/* ======== AMBLOP DIGITAL SECTION ======== */
+.gift-section {
+  padding: 3rem 1rem;
+  background-color: #fafafa;
+}
+
+.gift-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gift-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 320px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gift-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ======== ICON, WARNA, dan TEKS ======== */
+.gift-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.gift-card.bank {
+  border-top: 5px solid #f9a8d4;
+}
+
+.gift-card.ewallet {
+  border-top: 5px solid #86efac;
+}
+
+.gift-card h3 {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.rekening {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111;
+}
+
+.nama {
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+/* ======== TOMBOL ======== */
+.gift-card button {
+  background-color: #f472b6;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.gift-card button:hover {
+  background-color: #ec4899;
+}
+
+/* ======== GAMBAR QR ======== */
+.gift-card img {
+  margin-top: 1rem;
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 600px) {
+  .gift-card {
+    max-width: 100%;
+  }
+}
+/* ======== RSVP SECTION ======== */
+.rsvp-section {
+  padding: 3rem 1rem;
+  background-color: #fffafc;
+  text-align: center;
+}
+
+.rsvp-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #f0a6ca;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.rsvp-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.rsvp-form button {
+  background-color: #f472b6;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rsvp-form button:hover {
+  background-color: #ec4899;
+}
+
+.success-message {
+  margin-top: 1rem;
+  color: #22c55e;
+  font-weight: 600;
+}
+.rsvp-list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.rsvp-card {
+  background: #fff0f6;
+  border-left: 5px solid #f472b6;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin-inline: auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #f9a8d4;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.rsvp-form button {
+  background: #f472b6;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.rsvp-form button:hover {
+  background: #ec4899;
+}
+
+.success-message {
+  text-align: center;
+  margin-top: 1rem;
+  color: #16a34a;
+  font-weight: 500;
+}
+/* ====== BAGIAN RSVP UCAPAN ====== */
+.rsvp-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rsvp-card {
+  background-color: #fff0f5;
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.15s ease;
+}
+
+.rsvp-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Nama & tanggal */
+.rsvp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.rsvp-name {
+  font-weight: 700;
+  color: #c2185b;
+  font-size: 1rem;
+}
+
+.rsvp-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Pesan */
+.rsvp-message {
+  color: #333;
+  font-size: 0.95rem;
+  margin-top: 4px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Status hadir/tidak hadir */
+.rsvp-status {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rsvp-status.hadir {
+  color: #1aa34a;
+}
+
+.rsvp-status.tidak-hadir {
+  color: #999;
+}
+#countdown {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
+  text-align: center;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 8px 14px;
+  min-width: 90px;
+}
+
+.countdown-item span {
+  display: block;
+  font-size: 0.8rem;
+  color: #b00056;
+}
+

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Undangan - Sarah & Ahmad</title>
+
+    <!-- Fonts & Tailwind -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="gradient-bg min-h-full poppins">
+    <!-- Cover / Flip card -->
+    <section id="cover" class="text-center">
+
+      <div id="guest-name" class="mt-4 text-lg font-medium"></div>
+    </section>
+
+    <div
+      id="coverPage"
+      class="min-h-full w-full flex items-center justify-center p-4"
+    >
+      <div id="invitationCard" class="flip-card w-full max-w-6xl min-h-screen">
+        <div class="flip-card-inner">
+          <!-- Front -->
+          <div
+            class="flip-card-front bg-gradient-to-br from-pink-100 to-pink-200 shadow-2xl border-4 border-yellow-200 flex flex-col items-center justify-center p-8 md:p-16 min-h-screen"
+          >
+            <div
+              id="coverEmoji"
+              class="text-6xl md:text-8xl lg:text-9xl mb-6 heart-beat"
+            >
+              💕
+            </div>
+            <h1
+              id="coverTitle"
+              class="dancing-script text-3xl md:text-5xl lg:text-6xl text-pink-800 mb-4 text-center"
+            >
+              Undangan Pernikahan
+            </h1>
+            <div class="w-24 md:w-32 lg:w-40 h-0.5 bg-yellow-400 mb-6"></div>
+            <h2
+              id="coverNames"
+              class="dancing-script text-4xl md:text-6xl lg:text-7xl gold-accent font-bold mb-8 text-center"
+            >
+              Shafira & Iqbal
+            </h2>
+
+            <!-- TAMBAHAN UNTUK NAMA TAMU -->
+            <div
+              id="guestName"
+              class="text-lg md:text-xl text-pink-700 italic mb-8 bg-white/70 px-4 py-2 rounded-xl border border-pink-200"
+            >
+              <!-- diisi otomatis oleh script -->
+            </div>
+
+            <button
+              id="openInvitationBtn"
+              class="button-elegant sparkle bg-pink-400 hover:bg-pink-500 text-white px-8 py-4 md:px-12 md:py-6 rounded-full shadow-lg poppins font-medium text-lg md:text-xl"
+              aria-label="Buka undangan"
+            >
+              Buka Undangan 💌
+            </button>
+          </div>
+
+          <!-- Back (main) -->
+          <div
+            class="flip-card-back bg-white shadow-2xl overflow-y-auto min-h-screen"
+          >
+            <div id="mainContent" class="hidden">
+              <!-- Top nav -->
+              <nav
+                id="topNav"
+                class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50 p-4 md:p-6"
+              >
+                <div
+                  class="flex justify-center space-x-4 md:space-x-8 flex-wrap"
+                >
+                  <a
+                    class="nav-link text-pink-600 hover:text-pink-800 font-medium"
+                    data-target="home"
+                    >Beranda</a
+                  >
+                  <a
+                    class="nav-link text-pink-600 hover:text-pink-800 font-medium"
+                    data-target="story"
+                    >Cerita</a
+                  >
+                  <a
+                    class="nav-link text-pink-600 hover:text-pink-800 font-medium"
+                    data-target="event"
+                    >Acara</a
+                  >
+                  <a
+                    class="nav-link text-pink-600 hover:text-pink-800 font-medium"
+                    data-target="gallery"
+                    >Galeri</a
+                  >
+                  <a
+                    class="nav-link text-pink-600 hover:text-pink-800 font-medium"
+                    data-target="prewedding"
+                    >Pre-Wedding</a
+                  >
+                  <a
+                    class="nav-link text-pink-600 hover:text-pink-800 font-medium"
+                    data-target="gift"
+                    >Kado</a
+                  >
+                  <a
+                    class="nav-link text-pink-600 hover:text-pink-800 font-medium"
+                    data-target="rsvp"
+                    >RSVP</a
+                  >
+                </div>
+              </nav>
+
+              <!-- Side nav -->
+              <nav
+                id="sideNav"
+                class="fixed left-4 top-1/2 transform -translate-y-1/2 bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl p-3 z-50 transition-all duration-500 ease-out opacity-0 -translate-x-[100px] invisible"
+              >
+                <div class="flex flex-col space-y-3">
+                  <a class="side-nav-link" data-target="home" title="Beranda"
+                    >🏠</a
+                  >
+                  <a class="side-nav-link" data-target="story" title="Cerita"
+                    >💕</a
+                  >
+                  <a class="side-nav-link" data-target="event" title="Acara"
+                    >📅</a
+                  >
+                  <a class="side-nav-link" data-target="gallery" title="Galeri"
+                    >📸</a
+                  >
+                  <a
+                    class="side-nav-link"
+                    data-target="prewedding"
+                    title="Prewedding"
+                    >💒</a
+                  >
+                  <a class="side-nav-link" data-target="gift" title="Kado"
+                    >🎁</a
+                  >
+                  <a class="side-nav-link" data-target="rsvp" title="RSVP"
+                    >✉️</a
+                  >
+                </div>
+              </nav>
+
+              <!-- Home -->
+              <section
+                id="home"
+                class="min-h-screen flex flex-col items-center justify-center p-8 md:p-16 lg:p-24 pt-24 md:pt-32 text-center"
+              >
+                <div class="floating mb-8">
+                  <div
+                    id="homeEmoji"
+                    class="text-6xl md:text-8xl lg:text-9xl mb-6"
+                  >
+                    🌸
+                  </div>
+                </div>
+                <h1
+                  id="homeNames"
+                  class="dancing-script text-5xl md:text-7xl lg:text-8xl text-shimmer font-bold mb-6 sparkle"
+                >
+                  Sarah & Ahmad
+                </h1>
+                <div
+                  class="w-32 md:w-48 lg:w-64 h-0.5 bg-yellow-400 mb-8"
+                ></div>
+                <p
+                  id="homeInviteText"
+                  class="text-pink-700 text-lg md:text-xl lg:text-2xl mb-4 max-w-4xl"
+                >
+                  Dengan penuh sukacita, kami mengundang Anda
+                </p>
+                <p
+                  id="homeSubText"
+                  class="text-pink-600 text-base md:text-lg lg:text-xl mb-8 max-w-4xl"
+                >
+                  untuk berbagi kebahagiaan di hari istimewa kami
+                </p>
+
+                <div
+                  class="bg-pink-50 p-8 md:p-12 lg:p-16 rounded-2xl shadow-lg border border-pink-100 max-w-2xl"
+                >
+                  <p
+                    id="eventDateReadable"
+                    class="text-3xl md:text-4xl lg:text-5xl font-semibold text-pink-800 mb-4"
+                  >
+                    15 Desember 2024
+                  </p>
+                  <p
+                    id="eventTimeReadable"
+                    class="text-pink-600 text-lg md:text-xl lg:text-2xl mb-8"
+                  >
+                    Sabtu, 10:00 WIB
+                  </p>
+
+                  <div
+                    class="bg-white rounded-xl p-6 shadow-inner border border-pink-200"
+                  >
+                    <h3
+                      class="text-pink-700 font-semibold text-lg md:text-xl mb-4 text-center"
+                    >
+                      Menuju Hari Bahagia
+                    </h3>
+                    <div
+                      id="countdown"
+                      class="grid grid-cols-4 gap-2 md:gap-4 text-center"
+                    >
+                      <div
+                        class="bg-gradient-to-br from-pink-100 to-pink-200 rounded-lg p-3 md:p-4 shadow-sm"
+                      >
+                        <div
+                          id="days"
+                          class="text-2xl md:text-3xl font-bold text-pink-800"
+                        >
+                          00
+                        </div>
+                        <div
+                          class="text-xs md:text-sm text-pink-600 font-medium"
+                        >
+                          Hari
+                        </div>
+                      </div>
+                      <div
+                        class="bg-gradient-to-br from-pink-100 to-pink-200 rounded-lg p-3 md:p-4 shadow-sm"
+                      >
+                        <div
+                          id="hours"
+                          class="text-2xl md:text-3xl font-bold text-pink-800"
+                        >
+                          00
+                        </div>
+                        <div
+                          class="text-xs md:text-sm text-pink-600 font-medium"
+                        >
+                          Jam
+                        </div>
+                      </div>
+                      <div
+                        class="bg-gradient-to-br from-pink-100 to-pink-200 rounded-lg p-3 md:p-4 shadow-sm"
+                      >
+                        <div
+                          id="minutes"
+                          class="text-2xl md:text-3xl font-bold text-pink-800"
+                        >
+                          00
+                        </div>
+                        <div
+                          class="text-xs md:text-sm text-pink-600 font-medium"
+                        >
+                          Menit
+                        </div>
+                      </div>
+                      <div
+                        class="bg-gradient-to-br from-pink-100 to-pink-200 rounded-lg p-3 md:p-4 shadow-sm"
+                      >
+                        <div
+                          id="seconds"
+                          class="text-2xl md:text-3xl font-bold text-pink-800"
+                        >
+                          00
+                        </div>
+                        <div
+                          class="text-xs md:text-sm text-pink-600 font-medium"
+                        >
+                          Detik
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="countdownMessage"
+                      class="mt-4 text-center text-pink-600 text-sm md:text-base font-medium"
+                    ></div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="section-divider"></div>
+
+              <!-- Story -->
+              <section id="story" class="p-8 md:p-16 lg:p-24 fade-in">
+                <h2
+                  id="storyTitle"
+                  class="dancing-script text-4xl md:text-6xl lg:text-7xl text-center gold-accent font-bold mb-12"
+                >
+                  Cerita Cinta Kami
+                </h2>
+                <div
+                  id="storyContent"
+                  class="card-elegant bg-white rounded-2xl shadow-lg p-8 md:p-12 lg:p-16 mb-8 border border-pink-100 max-w-5xl mx-auto fade-in-left"
+                >
+                  <!-- diisi script -->
+                </div>
+              </section>
+
+              <div class="section-divider"></div>
+
+              <!-- Event -->
+              <section id="event" class="p-8 md:p-16 lg:p-24 fade-in">
+                <h2
+                  class="dancing-script text-4xl md:text-6xl lg:text-7xl text-center gold-accent font-bold mb-12"
+                >
+                  Detail Acara
+                </h2>
+                <div id="eventsList" class="space-y-8 max-w-5xl mx-auto"></div>
+                <div class="mt-12 max-w-5xl mx-auto">
+                  <h3
+                    class="text-xl md:text-2xl lg:text-3xl font-semibold text-pink-800 mb-6 text-center"
+                  >
+                    Lokasi Acara
+                  </h3>
+                  <div
+                    id="mapContainer"
+                    class="bg-pink-50 rounded-2xl p-6 shadow-lg border border-pink-200"
+                  ></div>
+                </div>
+              </section>
+
+              <div class="section-divider"></div>
+
+              <!-- Gallery -->
+              <section id="gallery" class="p-8 md:p-16 lg:p-24 fade-in">
+                <h2
+                  class="dancing-script text-4xl md:text-6xl lg:text-7xl text-center gold-accent font-bold mb-12"
+                >
+                  Galeri Foto
+                </h2>
+                <div
+                  id="galleryGrid"
+                  class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto"
+                ></div>
+              </section>
+
+              <div class="section-divider"></div>
+
+              <!-- Prewedding -->
+              <section id="prewedding" class="p-8 md:p-16 lg:p-24 fade-in">
+                <h2
+                  class="dancing-script text-4xl md:text-6xl lg:text-7xl text-center gold-accent font-bold mb-12"
+                >
+                  Pre-Wedding Gallery
+                </h2>
+                <div
+                  id="preweddingGrid"
+                  class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                ></div>
+              </section>
+              <!-- Bagian Amplop Digital -->
+              <section id="amplop-digital" class="gift-section">
+                <div class="container">
+                  <h2>Amplop Digital</h2>
+                  <p class="subtitle">
+                    Ucapan & tanda kasih dapat dikirim melalui rekening berikut:
+                  </p>
+
+                  <div class="gift-container">
+                    <!-- BANK 1 -->
+                    <div class="gift-card bank">
+                      <div class="gift-icon">🏦</div>
+                      <h3>BNI</h3>
+                      <p class="rekening">1234567890</p>
+                      <p class="nama">a.n. Ahmad & Sarah</p>
+                      <button onclick="copyToClipboard('1234567890')">
+                        Salin Nomor Rekening
+                      </button>
+                      <img src="img/qr-bni.png" alt="QR BNI" />
+                    </div>
+
+                    <!-- BANK 2 -->
+                    <div class="gift-card bank">
+                      <div class="gift-icon">🏦</div>
+                      <h3>BCA</h3>
+                      <p class="rekening">0987654321</p>
+                      <p class="nama">a.n. Ahmad & Sarah</p>
+                      <button onclick="copyToClipboard('0987654321')">
+                        Salin Nomor Rekening
+                      </button>
+                      <img src="img/qr-bca.png" alt="QR BCA" />
+                    </div>
+
+                    <!-- E-WALLET 1 -->
+                    <div class="gift-card ewallet">
+                      <div class="gift-icon">💚</div>
+                      <h3>Dana</h3>
+                      <p class="rekening">081234567890</p>
+                      <p class="nama">a.n. Ahmad</p>
+                      <button onclick="copyToClipboard('081234567890')">
+                        Salin Nomor
+                      </button>
+                      <img src="img/qr-dana1.png" alt="QR Dana Ahmad" />
+                    </div>
+
+                    <!-- E-WALLET 2 -->
+                    <div class="gift-card ewallet">
+                      <div class="gift-icon">💚</div>
+                      <h3>Dana</h3>
+                      <p class="rekening">082345678901</p>
+                      <p class="nama">a.n. Sarah</p>
+                      <button onclick="copyToClipboard('082345678901')">
+                        Salin Nomor
+                      </button>
+                      <img src="img/qr-dana2.png" alt="QR Dana Sarah" />
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <script>
+                function copyToClipboard(text) {
+                  navigator.clipboard.writeText(text);
+                  alert("Nomor telah disalin: " + text);
+                }
+              </script>
+
+              <!-- RSVP & Ucapan -->
+              <section id="rsvp" class="rsvp-section">
+                <div class="container">
+                  <h2>RSVP & Ucapan</h2>
+                  <p class="subtitle">
+                    Konfirmasi kehadiran dan kirimkan doa terbaik 💌
+                  </p>
+
+                  <form id="rsvpForm" class="rsvp-form">
+                    <input
+                      type="text"
+                      name="nama"
+                      placeholder="Nama Anda"
+                      required
+                    />
+                    <select name="status" required>
+                      <option value="">Konfirmasi Kehadiran</option>
+                      <option value="Hadir">Hadir</option>
+                      <option value="Tidak Hadir">Tidak Hadir</option>
+                    </select>
+                    <textarea
+                      name="ucapan"
+                      placeholder="Tulis ucapan atau doa..."
+                      required
+                    ></textarea>
+                    <button type="submit">Kirim</button>
+                  </form>
+
+                  <p
+                    id="rsvpMessage"
+                    class="success-message"
+                    style="display: none"
+                  >
+                    Terima kasih! Ucapan Anda telah tersimpan 💖
+                  </p>
+                </div>
+
+                <div class="rsvp-container" id="rsvpList"></div>
+              </section>
+
+              <script src="rsvp.js"></script>
+
+              <!-- Footer -->
+              <footer class="p-8 md:p-16 lg:p-24 text-center">
+                <div class="text-4xl md:text-6xl lg:text-8xl mb-6">💕</div>
+                <p id="footerThanks" class="text-pink-600 mb-4">
+                  Terima kasih atas doa dan kehadiran Anda
+                </p>
+                <p
+                  id="footerNames"
+                  class="dancing-script text-2xl md:text-4xl lg:text-5xl gold-accent font-bold"
+                >
+                  Sarah & Ahmad
+                </p>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Viewer Modal (tombol close diperjelas) -->
+    <div
+      id="imageViewer"
+      class="hidden fixed inset-0 bg-black/70 justify-center items-center z-50 flex-col p-4"
+    >
+      <div
+        class="relative bg-white rounded-2xl p-4 max-w-3xl w-full text-center shadow-2xl border border-pink-100"
+      >
+        <!-- Tombol close lebih besar & jelas -->
+        <button
+          id="closeImageViewerBtn"
+          class="absolute -top-4 -right-4 bg-pink-500 text-white hover:bg-pink-600 hover:scale-110 transition-all duration-300 rounded-full w-10 h-10 flex items-center justify-center shadow-lg border-2 border-white"
+          aria-label="Tutup"
+        >
+          ×
+        </button>
+
+        <div id="viewerEmoji" class="mb-3 text-3xl"></div>
+        <h3
+        id="viewerTitle"
+        class="text-2xl font-semibold text-pink-700 mb-2"
+        ></h3>
+        <p id="viewerDescription" class="text-gray-600 mb-4"></p>
+        
+        <div id="viewerMedia" class="flex justify-center mb-4">
+          <!-- Gambar/video akan dimasukkan lewat script -->
+        </div>
+        
+        <div class="flex justify-between mt-4">
+          <button id="prevViewerBtn" class="btn-secondary">← Sebelumnya</button>
+          <button id="nextViewerBtn" class="btn-primary">Selanjutnya →</button>
+        </div>
+      </div>
+    </div>
+    <!-- Config and Script -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+<script>
+  // Ambil parameter nama tamu dari URL, misalnya ?to=Andi%20Saputra
+  const urlParams = new URLSearchParams(window.location.search);
+  const guest = urlParams.get("to");
+
+  // Ganti title bar dan elemen di halaman berdasarkan config
+  document.title = INVITE_CONFIG.site.title;
+  document.querySelector("link[rel='icon']").href = INVITE_CONFIG.site.favicon;
+
+  // Isi bagian cover
+  document.getElementById("coverTitle").textContent = INVITE_CONFIG.cover.title;
+  document.getElementById("coverNames").textContent = INVITE_CONFIG.couple.display;
+
+  // Tampilkan nama tamu (jika ada)
+  const guestDiv = document.getElementById("guestName");
+  if (guest) {
+    guestDiv.innerHTML = `Kepada Yth.<br><strong>${decodeURIComponent(guest)}</strong>`;
+  } else {
+    guestDiv.textContent = "Kepada Yth. Tamu Undangan";
+  }
+</script>
+
+    
+  </body>
+</html>
