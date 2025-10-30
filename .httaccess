@@ -1,0 +1,5 @@
+# Prioritas file index
+DirectoryIndex index.html index.php
+
+# (Opsional) Matikan tampilan daftar file
+Options -Indexes
